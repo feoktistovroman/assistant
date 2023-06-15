@@ -15,6 +15,7 @@
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/stack": "^6.3.16",
     "axios": "^1.4.0",
+    "dotenv": "^16.1.4",
     "expo": "~48.0.18",
     "expo-local-authentication": "^13.3.0",
     "expo-secure-store": "^12.1.1",
