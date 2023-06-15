@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity, Button, Alert } from 'react-native';
 import axios from 'axios';
-import { OPENAI_API_KEY, OPENAI_API_URL, API_URL } from "@env";
 import ScreenLayout from '../components/ScreenLayout';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as SecureStore from 'expo-secure-store';
@@ -35,7 +34,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
             const token = await SecureStore.getItemAsync('token');
             if (token) {
                 setToken(token);
-                const response = await axios.get(`${API_URL}/portfolio/${portfolioId}`, {
+                const response = await axios.get(`${process.env.API_URL}/portfolio/${portfolioId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setPortfolio(response.data.portfolio);
@@ -66,7 +65,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
             );
 
             // Send the updated stocks array via PATCH request
-            const updateResponse = await axios.patch(`${API_URL}/portfolio/${portfolioId}`, {
+            const updateResponse = await axios.patch(`${process.env.API_URL}/portfolio/${portfolioId}`, {
                 stocks: stocksToUpdate,
             }, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -105,7 +104,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
             ];
 
             const response = await axios.post(
-                OPENAI_API_URL,
+                process.env.OPENAI_API_URL,
                 {
                     messages: request,
                     model: 'gpt-3.5-turbo',
@@ -115,7 +114,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${OPENAI_API_KEY}`,
+                        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
                     },
                 }
             );

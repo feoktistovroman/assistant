@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, SectionList, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import axios from 'axios';
-import { API_URL } from "@env";
 import * as SecureStore from 'expo-secure-store';
 import ScreenLayout from '../components/ScreenLayout';
 
@@ -53,7 +52,7 @@ const PortfolioScreen = ({ navigation }) => {
 
     const fetchPortfolios = async () => {
         try {
-            const response = await axios.get(`${API_URL}/portfolios`, {
+            const response = await axios.get(`${process.env.API_URL}/portfolios`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setPortfolios(response.data.portfolios);
@@ -86,7 +85,7 @@ const PortfolioScreen = ({ navigation }) => {
 
         try {
             const response = await axios.post(
-                `${API_URL}/portfolio`,
+                `${process.env.API_URL}/portfolio`,
                 {
                     title,
                     goals,
@@ -113,7 +112,7 @@ const PortfolioScreen = ({ navigation }) => {
 
     const deletePortfolio = async (id) => {
         try {
-            const response = await axios.delete(`${API_URL}/portfolio/${id}`, {
+            const response = await axios.delete(`${process.env.API_URL}/portfolio/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             console.log(response.data.message);

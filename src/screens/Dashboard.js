@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import Button from '../components/Button';
 import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
-import { API_URL } from "@env";
 
 export default function Dashboard({ navigation }) {
     const [message, setMessage] = useState('');
@@ -14,8 +13,9 @@ export default function Dashboard({ navigation }) {
         const fetchDashboardData = async () => {
             try {
                 const token = await SecureStore.getItemAsync('token');
+                console.log(process.env.API_URL)
 
-                const response = await axios.get(`${API_URL}/dashboard`, {
+                const response = await axios.get(`${process.env.API_URL}/dashboard`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setMessage(response.data.message);

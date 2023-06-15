@@ -10,7 +10,6 @@ import { emailValidator } from '../helpers/emailValidator';
 import { passwordValidator } from '../helpers/passwordValidator';
 import { nameValidator } from '../helpers/nameValidator';
 import axios from 'axios';
-import { API_URL } from "@env";
 
 export default function RegisterScreen({ navigation }) {
     const [name, setName] = useState({ value: '', error: '' });
@@ -29,7 +28,7 @@ export default function RegisterScreen({ navigation }) {
         }
 
         try {
-            const response = await axios.post(`${API_URL}/register`, {
+            const response = await axios.post(`${process.env.API_URL}/register`, {
                 name: name.value,
                 email: email.value,
                 password: password.value,
