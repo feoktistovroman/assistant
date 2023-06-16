@@ -10,7 +10,7 @@
     },
     "preview": {
       "distribution": "internal",
-      "channel": "preview"
+      "channel": "main"
     },
     "production": {
       "channel": "production"
