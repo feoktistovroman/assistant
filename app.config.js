@@ -4,7 +4,7 @@ export default {
   expo: {
     name: "assistant",
     slug: "assistant",
-    version: "1.0.2",
+    version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
     userInterfaceStyle: "light",
@@ -19,7 +19,6 @@ export default {
     ios: {
       supportsTablet: true,
       bundleIdentifier: "com.feoktistov.roman.assistant",
-      buildNumber: '2'
     },
     android: {
       adaptiveIcon: {
@@ -42,7 +41,7 @@ export default {
       url: "https://u.expo.dev/3d764b16-cf00-4b9a-a78f-bccb0b3ef12f"
     },
     runtimeVersion: {
-      policy: "nativeVersion"
+      policy: "sdkVersion"
     }
   }
 }
