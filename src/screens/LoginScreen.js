@@ -111,7 +111,7 @@ export default function LoginScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
             <View style={styles.innerContainer}>
                 <Logo />
-                <Header>Welcome to Investlio!!!</Header>
+                <Header>Welcome to Investlio!</Header>
                 <TextInput
                     label="Email"
                     returnKeyType="next"
