@@ -111,7 +111,7 @@ export default function LoginScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
             <View style={styles.innerContainer}>
                 <Logo />
-                <Header>Welcome back.</Header>
+                <Header>Welcome to Fin Assistant</Header>
                 <TextInput
                     label="Email"
                     returnKeyType="next"

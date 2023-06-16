@@ -36,6 +36,12 @@ export default {
       API_URL: process.env.API_URL,
       OPENAI_API_URL: process.env.OPENAI_API_URL,
       OPENAI_API_KEY: process.env.OPENAI_API_KEY
+    },
+    updates: {
+      url: "https://u.expo.dev/3d764b16-cf00-4b9a-a78f-bccb0b3ef12f"
+    },
+    runtimeVersion: {
+      policy: "sdkVersion"
     }
   }
 }
