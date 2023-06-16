@@ -18,7 +18,8 @@ export default {
     ],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: "com.feoktistov.roman.assistant"
+      bundleIdentifier: "com.feoktistov.roman.assistant",
+      buildNumber: '1'
     },
     android: {
       adaptiveIcon: {
