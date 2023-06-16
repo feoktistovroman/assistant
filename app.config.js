@@ -42,7 +42,7 @@ export default {
       url: "https://u.expo.dev/3d764b16-cf00-4b9a-a78f-bccb0b3ef12f"
     },
     runtimeVersion: {
-      policy: "sdkVersion"
+      policy: "nativeVersion"
     }
   }
 }
