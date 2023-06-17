@@ -53,7 +53,7 @@ export default function Dashboard({ navigation }) {
                     mode="outlined"
                     onPress={() => navigation.navigate('PortfolioScreen')}
                 >
-                    My Portfolios
+                    Go to Portfolios
                 </Button>
                 <Button mode="outlined" onPress={handleLogout}>
                     Logout
