@@ -45,7 +45,6 @@ export default function Dashboard({ navigation }) {
     return (
         <View style={styles.container}>
             <Logo />
-            <Header>Let’s start</Header>
             <View style={styles.messageContainer}>
                 <Header>{message}</Header>
             </View>
