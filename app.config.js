@@ -33,10 +33,24 @@ export default {
       eas: {
         projectId: "3d764b16-cf00-4b9a-a78f-bccb0b3ef12f"
       },
+      bugsnag: {
+        apiKey: "23b7eeed07e558e32156e9cc0a411d58"
+      },
       API_URL: process.env.API_URL,
       OPENAI_API_URL: process.env.OPENAI_API_URL,
       OPENAI_API_KEY: process.env.OPENAI_API_KEY
     },
+    hooks: {
+      postPublish: [
+        {
+          file: "@bugsnag/expo/hooks/post-publish.js",
+          config: {}
+        }
+      ]
+    },
+    plugins: [
+      "@bugsnag/plugin-expo-eas-sourcemaps"
+    ],
     updates: {
       url: "https://u.expo.dev/3d764b16-cf00-4b9a-a78f-bccb0b3ef12f"
     },
