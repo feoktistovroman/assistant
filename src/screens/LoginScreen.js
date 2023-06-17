@@ -11,7 +11,7 @@ import { theme } from '../core/theme';
 import { emailValidator } from '../helpers/emailValidator';
 import { passwordValidator } from '../helpers/passwordValidator';
 import axios from 'axios';
-import { Env } from "Env";
+import { Env } from "../constants/Env";
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState({ value: '', error: '' });

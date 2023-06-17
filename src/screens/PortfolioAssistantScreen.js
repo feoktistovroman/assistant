@@ -4,7 +4,7 @@ import axios from 'axios';
 import ScreenLayout from '../components/ScreenLayout';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as SecureStore from 'expo-secure-store';
-import { Env } from "Env";
+import { Env } from "../constants/Env";
 
 const PortfolioAssistantScreen = ({ route, navigation }) => {
     const [investmentData, setInvestmentData] = useState(null);

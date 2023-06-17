@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
 import { useFocusEffect } from '@react-navigation/native';
-import { Env } from "Env";
+import { Env } from "../constants/Env";
 
 const PortfolioItemScreen = ({ route, navigation }) => {
   const [moneyToInvest, setMoneyToInvest] = useState(5000);

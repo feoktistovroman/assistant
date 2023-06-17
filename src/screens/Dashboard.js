@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Button from '../components/Button';
 import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
-import { Env } from "Env";
+import { Env } from "../constants/Env";
 
 export default function Dashboard({ navigation }) {
     const [message, setMessage] = useState('');

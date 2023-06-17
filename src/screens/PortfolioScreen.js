@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button, SectionList, StyleSheet, Alert, Touchabl
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 import ScreenLayout from '../components/ScreenLayout';
-import { Env } from "Env";
+import { Env } from "../constants/Env";
 
 const PortfolioScreen = ({ navigation }) => {
     const [portfolios, setPortfolios] = useState([]);
