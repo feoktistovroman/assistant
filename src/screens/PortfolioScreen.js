@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button, SectionList, StyleSheet, Alert, Touchabl
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 import ScreenLayout from '../components/ScreenLayout';
-import Constants from "expo-constants";
+import { Env } from "Env";
 
 const PortfolioScreen = ({ navigation }) => {
     const [portfolios, setPortfolios] = useState([]);
@@ -53,7 +53,7 @@ const PortfolioScreen = ({ navigation }) => {
 
     const fetchPortfolios = async () => {
         try {
-            const response = await axios.get(`${Constants.expoConfig.extra.API_URL}/portfolios`, {
+            const response = await axios.get(`${Env.API_URL}/portfolios`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setPortfolios(response.data.portfolios);
@@ -86,7 +86,7 @@ const PortfolioScreen = ({ navigation }) => {
 
         try {
             const response = await axios.post(
-                `${Constants.expoConfig.extra.API_URL}/portfolio`,
+                `${Env.API_URL}/portfolio`,
                 {
                     title,
                     goals,
@@ -113,7 +113,7 @@ const PortfolioScreen = ({ navigation }) => {
 
     const deletePortfolio = async (id) => {
         try {
-            const response = await axios.delete(`${Constants.expoConfig.extra.API_URL}/portfolio/${id}`, {
+            const response = await axios.delete(`${Env.API_URL}/portfolio/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             console.log(response.data.message);

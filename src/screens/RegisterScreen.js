@@ -10,7 +10,7 @@ import { emailValidator } from '../helpers/emailValidator';
 import { passwordValidator } from '../helpers/passwordValidator';
 import { nameValidator } from '../helpers/nameValidator';
 import axios from 'axios';
-import Constants from "expo-constants";
+import { Env } from "Env";
 
 export default function RegisterScreen({ navigation }) {
     const [name, setName] = useState({ value: '', error: '' });
@@ -29,7 +29,7 @@ export default function RegisterScreen({ navigation }) {
         }
 
         try {
-            const response = await axios.post(`${Constants.expoConfig.extra.API_URL}/register`, {
+            const response = await axios.post(`${Env.API_URL}/register`, {
                 name: name.value,
                 email: email.value,
                 password: password.value,

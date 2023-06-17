@@ -4,7 +4,7 @@ import axios from 'axios';
 import ScreenLayout from '../components/ScreenLayout';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as SecureStore from 'expo-secure-store';
-import Constants from "expo-constants";
+import { Env } from "Env";
 
 const PortfolioAssistantScreen = ({ route, navigation }) => {
     const [investmentData, setInvestmentData] = useState(null);
@@ -35,7 +35,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
             const token = await SecureStore.getItemAsync('token');
             if (token) {
                 setToken(token);
-                const response = await axios.get(`${Constants.expoConfig.extra.API_URL}/portfolio/${portfolioId}`, {
+                const response = await axios.get(`${Env.API_URL}/portfolio/${portfolioId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setPortfolio(response.data.portfolio);
@@ -66,7 +66,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
             );
 
             // Send the updated stocks array via PATCH request
-            const updateResponse = await axios.patch(`${Constants.expoConfig.extra.API_URL}/portfolio/${portfolioId}`, {
+            const updateResponse = await axios.patch(`${Env.API_URL}/portfolio/${portfolioId}`, {
                 stocks: stocksToUpdate,
             }, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -105,7 +105,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
             ];
 
             const response = await axios.post(
-                Constants.expoConfig.extra.OPENAI_API_URL,
+                Env.OPENAI_API_URL,
                 {
                     messages: request,
                     model: 'gpt-3.5-turbo',
@@ -115,7 +115,7 @@ const PortfolioAssistantScreen = ({ route, navigation }) => {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${Constants.expoConfig.extra.OPENAI_API_KEY}`,
+                        Authorization: `Bearer ${Env.OPENAI_API_KEY}`,
                     },
                 }
             );

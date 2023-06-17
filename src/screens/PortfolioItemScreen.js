@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
 import { useFocusEffect } from '@react-navigation/native';
-import Constants from "expo-constants";
+import { Env } from "Env";
 
 const PortfolioItemScreen = ({ route, navigation }) => {
   const [moneyToInvest, setMoneyToInvest] = useState(5000);
@@ -84,7 +84,7 @@ const PortfolioItemScreen = ({ route, navigation }) => {
 
   const fetchPortfolio = async () => {
     try {
-      const response = await axios.get(`${Constants.expoConfig.extra.API_URL}/portfolio/${portfolioId}`, {
+      const response = await axios.get(`${Env.API_URL}/portfolio/${portfolioId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPortfolio(response.data.portfolio);
@@ -101,7 +101,7 @@ const PortfolioItemScreen = ({ route, navigation }) => {
   const updatePortfolio = async () => {
     try {
       await axios.patch(
-          `${Constants.expoConfig.extra.API_URL}/portfolio/${portfolioId}`,
+          `${Env.API_URL}/portfolio/${portfolioId}`,
           {
             calculator: {
               moneyToInvest,

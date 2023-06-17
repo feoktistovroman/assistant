@@ -7,8 +7,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eas-updates-preview": "dotenv -e .env -- eas update --auto",
-    "eas-build-preview": "dotenv -e .env -- eas build --profile preview --platform ios"
+    "eas-updates-preview": "dotenv -e .env -- eas update --branch preview --message \"Preview app updates\"",
+    "eas-build-preview-ios": "dotenv -e .env -- eas build --profile preview --platform ios",
+    "eas-updates-production": "dotenv -e .env.prod -- eas update --branch production --message \"Production app updates\"",
+    "eas-build-production-ios": "dotenv -e .env.prod -- eas build --profile production --platform ios"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",

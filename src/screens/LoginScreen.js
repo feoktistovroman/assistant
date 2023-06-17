@@ -11,7 +11,7 @@ import { theme } from '../core/theme';
 import { emailValidator } from '../helpers/emailValidator';
 import { passwordValidator } from '../helpers/passwordValidator';
 import axios from 'axios';
-import Constants from "expo-constants";
+import { Env } from "Env";
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState({ value: '', error: '' });
@@ -50,7 +50,7 @@ export default function LoginScreen({ navigation }) {
         }
 
         try {
-            const response = await axios.post(`${Constants.expoConfig.extra.API_URL}/login`, {
+            const response = await axios.post(`${Env.API_URL}/login`, {
                 email: email.value,
                 password: password.value,
             });
