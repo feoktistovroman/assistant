@@ -24,7 +24,9 @@ export default {
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#ffffff"
-      }
+      },
+      package: "com.feoktistov.roman.assistant",
+      buildType: "apk"
     },
     web: {
       favicon: "./assets/favicon.png"
